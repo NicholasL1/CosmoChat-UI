@@ -2,8 +2,6 @@ import { useState } from 'react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = "sk-proj-3k7gYhEJO8x6cDLOwhe5T3BlbkFJDyptwSxSvhySqRg6ua5Y";
-
 function App() {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
@@ -66,7 +64,7 @@ function App() {
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer "+ API_KEY,
+        "Authorization": "Bearer "+import.meta.env.OPEN_API_KEY,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(apiRequestBody)
